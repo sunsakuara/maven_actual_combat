@@ -12,6 +12,6 @@
     <!--SimpleControllerHanderAdapters是一个处理器适配器，所有处理器适配器都要实现HanderAdaoyter接口-->
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
     <!--视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceView"/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
 
 </beans>
