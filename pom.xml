@@ -1,0 +1,68 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net,zhuruyi</groupId>
+    <artifactId>maven_actual_combat</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>maven_actual_combat Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <!--配置信息-->
+    <properties>
+        <!--配置spring-->
+        <!--spring 版本号-->
+        <!--<spring.version>4.3.5.RELEASE</spring.version>-->
+        <!--spring web mvc 版本号-->
+        <spring-webmvc.version>4.3.10.RELEASE</spring-webmvc.version>
+        <!--commons-loggin-->
+        <commons-loggin.version>1.2</commons-loggin.version>
+
+    </properties>
+
+    <dependencies>
+
+        <!--Spring-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-context</artifactId>-->
+        <!--<version>${spring.version}</version>-->
+        <!--</dependency>-->
+
+        <!--Spring MVC-->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-webmvc.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${commons-loggin.version}</version>
+        </dependency>
+
+
+        <!--test jar-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>maven_actual_combat</finalName>
+    </build>
+</project>

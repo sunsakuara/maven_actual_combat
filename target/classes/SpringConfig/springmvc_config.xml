@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置handler,映射“/hello"请求-->
+    <bean class="net.zhuruyi.Controller.HelloController" name="/hello"></bean>
+
+    <!--ｓｐｒｉｎｇ４.０之后，可以不用配置一下信息-->
+    <!--处理映射器将ｂｅａｎ的ｎａｍｅ作为ＵＲＬ查找，需要在配置Ｈａｎｄｌｅ的时候制定ＵＲｌ-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <!--SimpleControllerHanderAdapters是一个处理器适配器，所有处理器适配器都要实现HanderAdaoyter接口-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceView"/>
+
+</beans>
