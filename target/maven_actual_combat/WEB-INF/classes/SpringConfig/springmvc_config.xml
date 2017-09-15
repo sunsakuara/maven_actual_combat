@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.springframework.org/schema/beans"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--配置handler,映射“/hello"请求-->
+    <!--以下方式是采用implements Controller 方式实现Controller的，
+    对应D:\IDEA Projects\maven_actual_combat\src\main\java\net\zhuruyi\Controller
+    中的HelloController
+    -->
+    <!--&lt;!&ndash;配置handler,映射“/hello"请求&ndash;&gt;
     <bean class="net.zhuruyi.Controller.HelloController" name="/hello"></bean>
 
-    <!--ｓｐｒｉｎｇ４.０之后，可以不用配置一下信息-->
-    <!--处理映射器将ｂｅａｎ的ｎａｍｅ作为ＵＲＬ查找，需要在配置Ｈａｎｄｌｅ的时候制定ＵＲｌ-->
+    &lt;!&ndash;ｓｐｒｉｎｇ４.０之后，可以不用配置一下信息&ndash;&gt;
+    &lt;!&ndash;处理映射器将ｂｅａｎ的ｎａｍｅ作为ＵＲＬ查找，需要在配置Ｈａｎｄｌｅ的时候制定ＵＲｌ&ndash;&gt;
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    <!--SimpleControllerHanderAdapters是一个处理器适配器，所有处理器适配器都要实现HanderAdaoyter接口-->
+    &lt;!&ndash;SimpleControllerHanderAdapters是一个处理器适配器，所有处理器适配器都要实现HanderAdaoyter接口&ndash;&gt;
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-    <!--视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    &lt;!&ndash;视图解析器&ndash;&gt;
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>-->
+
+    <!--以下方式是采用注解的方式，要扫描相应得包-->
+    <context:component-scan base-package="net.zhuruyi.Controller"></context:component-scan>
+
+    <!--设置一个拦截器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/content/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>

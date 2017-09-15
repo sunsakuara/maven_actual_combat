@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+
 public class HelloController implements Controller {
 
     private static final Log logger = LogFactory.getLog(HelloController.class);
@@ -22,17 +23,12 @@ public class HelloController implements Controller {
         logger.info("HandlerRequest被调用");
         //创建准备返回的ModelAndView对象，该对象通常包含了返回视图名/模型的名称以及模型的对象
         ModelAndView modelAndView = new ModelAndView();
-        try {
-            //添加模型数据，可以是任意的POJO对象
-            modelAndView.addObject("message", "HelloWorld");
-            //设置逻辑视图名，视图解析器会根据该名字解析到具体的视图页面
-            modelAndView.setViewName("/WEB-INF/content/Welcome.jsp");
-            //返回ModelAndView对象
-            return modelAndView;
-        } catch (Exception e) {
-            System.out.println("Error:" + e);
-        }
-        return null;
+        //添加模型数据，可以是任意的POJO对象
+        modelAndView.addObject("message", "HelloWorld");
+        //设置逻辑视图名，视图解析器会根据该名字解析到具体的视图页面
+        modelAndView.setViewName("/WEB-INF/content/Welcome.jsp");
+        //返回ModelAndView对象
+        return modelAndView;
 
     }
 }
